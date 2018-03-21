@@ -200,5 +200,57 @@ namespace GITTest
             return 0;
         }
 
+        private void GetFromDestinationButton_Click(object sender, EventArgs e)
+        {
+            //Create new list to store the indexed results in.
+            List<string> DestinationDates = new List<string>();
+
+            //Create new list to store the named results in.
+            List<string> DestinationDatesNamed = new List<string>();
+
+
+            //Create the database string
+            string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionStringDestination))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT dayName, dayNumber, monthName, monthNumber, weekNumber, year, weekend," +
+                    "date, dayOfYear from Time", connection);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    //If there are rows, it means the date exsists so change the exsists variable. 
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            DestinationDates.Add(reader[0].ToString() + ", " + reader[1].ToString() + ", " + reader[2].ToString() + ", " + 
+                                reader[3].ToString() + ", " + reader[4].ToString() + ", " + reader[5].ToString() + ", " + reader[6].ToString() + 
+                                ", " + reader[7].ToString() + ", " + reader[8].ToString());
+
+                            DestinationDatesNamed.Add(reader["dayName"].ToString() + ", " + reader["dayNumber"].ToString() + ", " + 
+                                reader["monthName"].ToString() + ", " + reader["monthNumber"].ToString() + ", " + reader["weekNumber"].ToString() + 
+                                ", " + reader["year"].ToString() + ", " + reader["weekend"].ToString() + ", " + reader["date"].ToString() + ", " + 
+                                reader["dayOfYear"].ToString());
+
+                        }
+                    }
+                    else
+                    {
+                        DestinationDates.Add("No Data present.");
+                        DestinationDatesNamed.Add("No Data present.");
+                    }
+                }
+                
+            }
+
+
+            //Bind the listbox to the list.
+            listBoxFromDb.DataSource = DestinationDates;
+            //Bind the listbox to the list.
+            listBoxFromDbNamed.DataSource = DestinationDatesNamed;
+
+        }
     }
 }

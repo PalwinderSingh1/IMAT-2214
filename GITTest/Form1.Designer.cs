@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.GetDates = new System.Windows.Forms.Button();
             this.listBoxDates = new System.Windows.Forms.ListBox();
-            this.listBoxTimes = new System.Windows.Forms.ListBox();
+            this.listBoxFromDb = new System.Windows.Forms.ListBox();
+            this.GetFromDestinationButton = new System.Windows.Forms.Button();
+            this.listBoxFromDbNamed = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Git clone and pull test!";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // GetDates
             // 
@@ -64,38 +55,58 @@
             this.listBoxDates.Size = new System.Drawing.Size(120, 95);
             this.listBoxDates.TabIndex = 3;
             // 
-            // listBoxTimes
+            // listBoxFromDb
             // 
-            this.listBoxTimes.FormattingEnabled = true;
-            this.listBoxTimes.HorizontalScrollbar = true;
-            this.listBoxTimes.Location = new System.Drawing.Point(138, 100);
-            this.listBoxTimes.Name = "listBoxTimes";
-            this.listBoxTimes.ScrollAlwaysVisible = true;
-            this.listBoxTimes.Size = new System.Drawing.Size(120, 95);
-            this.listBoxTimes.TabIndex = 4;
+            this.listBoxFromDb.FormattingEnabled = true;
+            this.listBoxFromDb.HorizontalScrollbar = true;
+            this.listBoxFromDb.Location = new System.Drawing.Point(278, 100);
+            this.listBoxFromDb.Name = "listBoxFromDb";
+            this.listBoxFromDb.ScrollAlwaysVisible = true;
+            this.listBoxFromDb.Size = new System.Drawing.Size(120, 95);
+            this.listBoxFromDb.TabIndex = 4;
+            // 
+            // GetFromDestinationButton
+            // 
+            this.GetFromDestinationButton.Location = new System.Drawing.Point(278, 53);
+            this.GetFromDestinationButton.Name = "GetFromDestinationButton";
+            this.GetFromDestinationButton.Size = new System.Drawing.Size(88, 41);
+            this.GetFromDestinationButton.TabIndex = 5;
+            this.GetFromDestinationButton.Text = "Get from Destination Db";
+            this.GetFromDestinationButton.UseVisualStyleBackColor = true;
+            this.GetFromDestinationButton.Click += new System.EventHandler(this.GetFromDestinationButton_Click);
+            // 
+            // listBoxFromDbNamed
+            // 
+            this.listBoxFromDbNamed.FormattingEnabled = true;
+            this.listBoxFromDbNamed.HorizontalScrollbar = true;
+            this.listBoxFromDbNamed.Location = new System.Drawing.Point(404, 100);
+            this.listBoxFromDbNamed.Name = "listBoxFromDbNamed";
+            this.listBoxFromDbNamed.ScrollAlwaysVisible = true;
+            this.listBoxFromDbNamed.Size = new System.Drawing.Size(137, 95);
+            this.listBoxFromDbNamed.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.listBoxTimes);
+            this.ClientSize = new System.Drawing.Size(580, 261);
+            this.Controls.Add(this.listBoxFromDbNamed);
+            this.Controls.Add(this.GetFromDestinationButton);
+            this.Controls.Add(this.listBoxFromDb);
             this.Controls.Add(this.listBoxDates);
             this.Controls.Add(this.GetDates);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button GetDates;
         private System.Windows.Forms.ListBox listBoxDates;
-        private System.Windows.Forms.ListBox listBoxTimes;
+        private System.Windows.Forms.ListBox listBoxFromDb;
+        private System.Windows.Forms.Button GetFromDestinationButton;
+        private System.Windows.Forms.ListBox listBoxFromDbNamed;
     }
 }
 

@@ -27,7 +27,7 @@ namespace GITTest
         {
             List<string> Customers = new List<string>();
             //clear the listbox
-            //Clear the listbox of existing contents
+            //Clear the listbox of existing content
             listBoxCustomers.Items.Clear();
 
             //Create the database string for Set 1 and Set 2

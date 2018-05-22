@@ -61,7 +61,7 @@ namespace GITTest
             {
                 //Split the string on whitespace and remove anything thats blan.
                 var dates = date.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-                //Grab the first item (we know this is the date) and add it to our new 
+                //Grab the first item (we know this is the date) and add it to our new list
                 DatesFormatted.Add(dates[0]);
             }
 

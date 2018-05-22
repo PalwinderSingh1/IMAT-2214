@@ -53,7 +53,20 @@ namespace GITTest
                     Dates.Add(reader[1].ToString());
                 }
             }
-            listBoxDates.DataSource = Dates;
+
+            //Create a new list for the formatted dates
+            List<string> DatesFormatted = new List<string>();
+
+            foreach (string date in Dates)
+            {
+                //Split the string on whitespace and remove anything thats blan.
+                var dates = date.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+                //Grab the first item (we know this is the date) and add it to our new list
+                DatesFormatted.Add(dates[0]);
+            }
+
+            //Bind the listbox to the list.
+            listBoxDates.DataSource = DatesFormatted;
         }
     }
 }

@@ -70,17 +70,18 @@ namespace GITTest
             List<String> CustomersFormatted = new List<string>();
             foreach (string customer in Customers)
             {
-                
+
                 //split the string on whitespace and remove anything thats blank
-                var dates =customer.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+                var dates = customer.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
                 //Grab the first item [we know this the data] and add it to our new lisst.
-              CustomersFormatted.Add(dates[0]);
+                CustomersFormatted.Add(dates[0]);
             }
             //Bind the listbox to th list
             listBoxCustomers.DataSource = CustomersFormatted;
         }
-    }  
+    }
 
+}
             
         
     

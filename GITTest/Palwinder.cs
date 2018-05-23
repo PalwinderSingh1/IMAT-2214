@@ -54,7 +54,7 @@ namespace GITTest
                 }
             }
 
-            //Create a new list for the formatted dates
+            //Create a new list for the formatted date
             List<string> DatesFormatted = new List<string>();
 
             foreach (string date in Dates)

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxProducts = new System.Windows.Forms.ListBox();
+            this.lstboxProducts = new System.Windows.Forms.ListBox();
             this.btnGetProducts = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBoxProducts
+            // lstboxProducts
             // 
-            this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 25;
-            this.listBoxProducts.Location = new System.Drawing.Point(87, 255);
-            this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(221, 179);
-            this.listBoxProducts.TabIndex = 6;
+            this.lstboxProducts.FormattingEnabled = true;
+            this.lstboxProducts.ItemHeight = 25;
+            this.lstboxProducts.Location = new System.Drawing.Point(87, 255);
+            this.lstboxProducts.Name = "lstboxProducts";
+            this.lstboxProducts.Size = new System.Drawing.Size(221, 179);
+            this.lstboxProducts.TabIndex = 6;
             // 
             // btnGetProducts
             // 
@@ -67,7 +67,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 637);
-            this.Controls.Add(this.listBoxProducts);
+            this.Controls.Add(this.lstboxProducts);
             this.Controls.Add(this.btnGetProducts);
             this.Controls.Add(this.label2);
             this.Name = "Harminder";
@@ -79,7 +79,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxProducts;
+        private System.Windows.Forms.ListBox lstboxProducts;
         private System.Windows.Forms.Button btnGetProducts;
         private System.Windows.Forms.Label label2;
     }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace GITTest
 {
@@ -60,9 +60,6 @@ namespace GITTest
 
             //blind the listbox to the list
             lstboxGetProducts.DataSource = ProductsFormatted;
-
-
         }
-
     }
 }

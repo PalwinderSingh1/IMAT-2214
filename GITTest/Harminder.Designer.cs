@@ -28,59 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstboxProducts = new System.Windows.Forms.ListBox();
             this.btnGetProducts = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lstboxGetProducts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // lstboxProducts
-            // 
-            this.lstboxProducts.FormattingEnabled = true;
-            this.lstboxProducts.ItemHeight = 25;
-            this.lstboxProducts.Location = new System.Drawing.Point(87, 255);
-            this.lstboxProducts.Name = "lstboxProducts";
-            this.lstboxProducts.Size = new System.Drawing.Size(221, 179);
-            this.lstboxProducts.TabIndex = 6;
             // 
             // btnGetProducts
             // 
-            this.btnGetProducts.Location = new System.Drawing.Point(87, 144);
+            this.btnGetProducts.Location = new System.Drawing.Point(79, 122);
             this.btnGetProducts.Name = "btnGetProducts";
-            this.btnGetProducts.Size = new System.Drawing.Size(186, 58);
-            this.btnGetProducts.TabIndex = 5;
-            this.btnGetProducts.Text = "GetProducts";
+            this.btnGetProducts.Size = new System.Drawing.Size(168, 68);
+            this.btnGetProducts.TabIndex = 0;
+            this.btnGetProducts.Text = "Get Products";
             this.btnGetProducts.UseVisualStyleBackColor = true;
             this.btnGetProducts.Click += new System.EventHandler(this.btnGetProducts_Click);
             // 
-            // label2
+            // lstboxGetProducts
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 177);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = ".";
+            this.lstboxGetProducts.FormattingEnabled = true;
+            this.lstboxGetProducts.ItemHeight = 25;
+            this.lstboxGetProducts.Location = new System.Drawing.Point(79, 217);
+            this.lstboxGetProducts.Name = "lstboxGetProducts";
+            this.lstboxGetProducts.Size = new System.Drawing.Size(599, 529);
+            this.lstboxGetProducts.TabIndex = 1;
             // 
             // Harminder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 637);
-            this.Controls.Add(this.lstboxProducts);
+            this.ClientSize = new System.Drawing.Size(773, 792);
+            this.Controls.Add(this.lstboxGetProducts);
             this.Controls.Add(this.btnGetProducts);
-            this.Controls.Add(this.label2);
             this.Name = "Harminder";
             this.Text = "Harminder";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstboxProducts;
         private System.Windows.Forms.Button btnGetProducts;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lstboxGetProducts;
     }
 }

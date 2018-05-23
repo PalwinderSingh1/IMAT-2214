@@ -34,7 +34,7 @@ namespace GITTest
         {
             //Create a list to store the dates 
             List<string> Dates = new List<string>();
-            //clear the listbox of existing contents
+            //clear the listbox of existing content
             listBoxDates.Items.Clear();
 
             //create the database string for Set 1 and Set 2

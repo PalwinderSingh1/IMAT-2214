@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.GetDates = new System.Windows.Forms.Button();
+            this.listBoxDates = new System.Windows.Forms.ListBox();
+            this.insertResponse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -42,24 +44,46 @@
             this.label1.Text = "Git clone and pull test!";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // GetDates
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = ".";
+            this.GetDates.Location = new System.Drawing.Point(12, 53);
+            this.GetDates.Name = "GetDates";
+            this.GetDates.Size = new System.Drawing.Size(75, 23);
+            this.GetDates.TabIndex = 2;
+            this.GetDates.Text = "GetDates";
+            this.GetDates.UseVisualStyleBackColor = true;
+            this.GetDates.Click += new System.EventHandler(this.GetDates_Click);
+            // 
+            // listBoxDates
+            // 
+            this.listBoxDates.FormattingEnabled = true;
+            this.listBoxDates.HorizontalScrollbar = true;
+            this.listBoxDates.Location = new System.Drawing.Point(12, 100);
+            this.listBoxDates.Name = "listBoxDates";
+            this.listBoxDates.ScrollAlwaysVisible = true;
+            this.listBoxDates.Size = new System.Drawing.Size(120, 95);
+            this.listBoxDates.TabIndex = 3;
+            // 
+            // insertResponse
+            // 
+            this.insertResponse.AutoSize = true;
+            this.insertResponse.Location = new System.Drawing.Point(173, 126);
+            this.insertResponse.Name = "insertResponse";
+            this.insertResponse.Size = new System.Drawing.Size(0, 13);
+            this.insertResponse.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.insertResponse);
+            this.Controls.Add(this.listBoxDates);
+            this.Controls.Add(this.GetDates);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,7 +92,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button GetDates;
+        private System.Windows.Forms.ListBox listBoxDates;
+        private System.Windows.Forms.Label insertResponse;
     }
 }
 

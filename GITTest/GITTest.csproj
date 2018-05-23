@@ -67,6 +67,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DestinationDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Harminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harminder.Designer.cs">
+      <DependentUpon>Harminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Harminder.resx">
+      <DependentUpon>Harminder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

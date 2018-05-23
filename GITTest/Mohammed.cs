@@ -30,7 +30,7 @@ namespace GITTest
             //Clear the listbox of existing contents
             listBoxCustomers.Items.Clear();
 
-            //Create the database string for Set 1 and Set 2
+            //Create the database string for Set 1 and Set 2 testing 
             string connectionStringSet1 = Properties.Settings.Default.Data_set_1ConnectionString;
 
             using (OleDbConnection connection = new OleDbConnection(connectionStringSet1))

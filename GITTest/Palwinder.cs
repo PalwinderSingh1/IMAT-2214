@@ -17,6 +17,7 @@ namespace GITTest
     {
 
         List<string> DatesFormatted = new List<string>();
+        private object dbdate;
 
         public Form1()
         {
@@ -84,8 +85,8 @@ namespace GITTest
             int dayOfYear = dateTime.DayOfYear;
             string monthName = dateTime.ToString("MMMM");
             int weekNumber = dayOfYear / 7;
-            bool Weekend = false;
-            if (dayofWeek == "Saturday" || dayofWeek == "Sunday") Weekend = true;
+            bool weekend = false;
+            if (dayofWeek == "Saturday" || dayofWeek == "Sunday") weekend = true;
 
 
             //these two do the same thing, its down to personal coding style only use one of them
@@ -98,6 +99,34 @@ namespace GITTest
             Console.WriteLine(Dates[0].ToString());
 
             listBoxDates.DataSource = Dates;
+        }
+
+
+        private void splitDates(string date)
+        {
+            //split the data down and assign it to variables for later use/ added by harminder
+            string[] arrayDate = date.Split('/');
+            int year = Convert.ToInt32(arrayDate[2]);
+            int month = Convert.ToInt32(arrayDate[1]);
+            int day = Convert.ToInt32(arrayDate[0]);
+
+            DateTime dateTime = new DateTime(year, month, day);
+
+            string dayOfWeek = dateTime.DayOfWeek.ToString();
+            int dayOfYear = dateTime.DayOfYear;
+            string monthName = dateTime.ToString("MMMM");
+            int weekNumber = dayOfYear / 7;
+            bool Weekend = false;
+            if (dayOfWeek == "Saturday" || dayOfWeek == "Sunday") Weekend = true;
+            string dbDate = dateTime.ToString("M/dd/yyyy");
+
+            insertTimeDimension(dbdate, dayOfWeek, day, monthName, weekNumber, year, Weekend, dayOfYear);
+
+        }
+
+        private void insertTimeDimension(object dbdate, string dayOfWeek, int day, string monthName, int weekNumber, int year, bool weekend, int dayOfYear)
+        {
+            throw new NotImplementedException();
         }
 
         private void btnGetFromDestinationDb_Click(object sender, EventArgs e)
@@ -137,7 +166,7 @@ namespace GITTest
                         DestinitionDates.Add("No Data present.");
                         DestinationDatesNamed.Add("No Data present.");
                     }
-                  }
+                }
 
 
                 //bind the the listbox to the list.
@@ -146,9 +175,53 @@ namespace GITTest
                 listBoxFromDbNamed.DataSource = DestinationDatesNamed;
             }
         }
-        private void splitDates(string date)
+
+        private void insertTimeDimension(string date, string dayName, int dayNumber, string monthName, int monthNumber, int weekNumber, int year, bool weekend, int dayOfYear)
         {
-            //split the data down and assign it to variables for later use/ added by harminder
+            //to be able to create a connection to the MDF file
+            string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
+
+            using (SqlConnection myConnection = new SqlConnection(connectionStringDestination))
+            {
+                //open the SqlConnection
+                myConnection.Open();
+                //the following code uses an SqlCommand based on SQLconnection
+                SqlCommand command = new SqlCommand("SELECT id FROM time WHERE date = @date", myConnection);
+                command.Parameters.Add(new SqlParameter("date", date));
+
+                //run the command and read results
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    //create a variable and assign it to false by default
+                    bool exists = false;
+                    //if there are rows , it means the date exists so change the exists variable
+                    if (reader.HasRows) exists = true;
+                }
+                //      if (exists = false)
+                {
+                    SqlCommand insertCommand = new SqlCommand(
+                "INSERT ONTO TIME(dayNumber, monthName, monthNumber, weekNumber, year, weekend, datedayOfYear)" + "VALUES @dayName, @DayNumber, @monthName, @monthNumber, @date, @dayOfYear", myConnection);
+                    insertCommand.Parameters.Add(new SqlParameter("dayName", dayName));
+                    insertCommand.Parameters.Add(new SqlParameter("dayNumber", dayNumber));
+                    insertCommand.Parameters.Add(new SqlParameter("monthName", monthName));
+                    insertCommand.Parameters.Add(new SqlParameter("monthNumber", monthNumber));
+                    insertCommand.Parameters.Add(new SqlParameter("weekNumber", monthNumber));
+                    insertCommand.Parameters.Add(new SqlParameter("year", year));
+                    insertCommand.Parameters.Add(new SqlParameter("weekend", weekend));
+                    insertCommand.Parameters.Add(new SqlParameter("date", date));
+                    insertCommand.Parameters.Add(new SqlParameter("dayOfYear", dayOfYear));
+
+                    //insert the line
+                    int recordsAffected = insertCommand.ExecuteNonQuery();
+                    Console.WriteLine("Records Affected: " + recordsAffected);
+                }
+                command.Parameters.Add(new SqlParameter("date", date));
+            }
+        }
+
+        private int GetDateID(string date)
+        {
+            //split the date down and assign it to variable for later use.
             string[] arrayDate = date.Split('/');
             int year = Convert.ToInt32(arrayDate[2]);
             int month = Convert.ToInt32(arrayDate[1]);
@@ -156,154 +229,41 @@ namespace GITTest
 
             DateTime dateTime = new DateTime(year, month, day);
 
-            string dayOfWeek = dateTime.DayOfWeek.ToString();
-            int dayOfYear = dateTime.DayOfYear;
-            string monthName = dateTime.ToString("MMMM");
-            int weekNumber = dayOfYear / 7;
-            bool Weekend = false;
+            string dbDate = dateTime.ToString("m/dd/yyyy");
 
-            if (dayOfWeek == "Saturday" || dayOfWeek == "Sunday") Weekend = true;
 
-            InsertTimeDimension(date, dayOfWeek, day, monthName, weekNumber, year, Weekend, dayOfYear);
-
-        }
-    
-
-        private void btnGetfromDesinitionDb_Click(object sender, EventArgs e)
-        {
-         
-            //create new list to store the indexed results in.
-            List<string> DestinitionDates = new List<string>();
-
-            //create new list to store the named results in.
-            List<string> DestinationDatesNamed = new List<string>();
-
-            //create the database string
+            //create a connecting to the MDF file 
             string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
 
-            using (SqlConnection connection = new SqlConnection(connectionStringDestination))
+            using (SqlConnection myConnection = new SqlConnection(connectionStringDestination))
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand ("SELECT dayName, dayNumber, monthName, weekNumber, year, weekend,") + "date, dayOfYear from Time", connection);
+                //open the sqlConnection.
+                myConnection.Open();
+                // the follwing code uses an SqlCommand based on the SqlConnection.
+                SqlCommand command = new SqlCommand("SELECT it FROM TIME WHERE date = @date", myConnection);
+                command.Parameters.Add(new SqlParameter("date", dbDate));
 
+                //create a variable and assign it to false by default.
+                bool exists = false;
+
+                //Run the command & read the results
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     //if there are rows, it means the data exists so change the exists variable.
-                    if (reader.HasRows) ;
-                    }
-                
-                        while (reader.Read())
-                        {
-                            DestinitionDates.Add(reader[0].ToString() + ", " + reader[1].ToString() + "," + reader[2].ToString() + "," +
-                                reader[3].ToString() + "," + reader[4].ToString() + "," + reader[5].ToString() + "," + reader[6].ToString() +
-                                "," + reader[7].ToString() + "," + reader[8].ToString());
-
-                            DestinitionDates.Add(reader["dayName"].ToString() + ", " + reader["dayNumber"].ToString() + "," + reader["monthName"].ToString() + "," +
-                                reader["monthNumber"].ToString() + "," + reader["weekNumber"].ToString() + "," + reader["year"].ToString() + "," + reader["weekend"].ToString() +
-                                "," + reader["date"].ToString() + "," + reader["dayOfYear"].ToString());
-                        }
-                    }
-                    else
+                    if (reader.HasRows)
                     {
-                        DestinitionDates.Add("No Data present.");
-                        DestinationDatesNamed.Add("No Data present.");
+                        exists = true;
+                        Console.WriteLine("Data exists!");
                     }
                 }
-            }
 
-            //bind the the listbox to the list.
-            listBoxFromDb.DataSource = DestinitionDates;
-            //bind the listbox to the list.
-            listBoxFromDbNamed.DataSource = DestinationDatesNamed;
-        }
-    
-
-    private void insertTimeDimension(string date, string dayName, int dayNumber, string monthName, int monthNumber, int weekNumber, int year, bool weekend, int dayOfYear)
-    {
-        //to be able to create a connection to the MDF file
-        string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
-
-        using (SqlConnection myConnection = new SqlConnection(connectionStringDestination))
-        {
-            //open the SqlConnection
-            myConnection.Open();
-            //the following code uses an SqlCommand based on SQLconnection
-            SqlCommand command = new SqlCommand("SELECT id FROM time WHERE date = @date", myConnection);
-            command.Parameters.Add(new SqlParameter("date", date));
-
-            //run the command and read results
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                //create a variable and assign it to false by default
-                bool exists = false;
-                //if there are rows , it means the date exists so change the exists variable
-                if (reader.HasRows) exists = true;
-            }
-      //      if (exists = false)
-            {
-                SqlCommand insertCommand = new SqlCommand(
-            "INSERT ONTO TIME(dayNumber, monthName, monthNumber, weekNumber, year, weekend, datedayOfYear)" + "VALUES @dayName, @DayNumber, @monthName, @monthNumber, @date, @dayOfYear", myConnection);
-                insertCommand.Parameters.Add(new SqlParameter("dayName", dayName));
-                insertCommand.Parameters.Add(new SqlParameter("dayNumber", dayNumber));
-                insertCommand.Parameters.Add(new SqlParameter("monthName", monthName));
-                insertCommand.Parameters.Add(new SqlParameter("monthNumber", monthNumber));
-                insertCommand.Parameters.Add(new SqlParameter("weekNumber", monthNumber));
-                insertCommand.Parameters.Add(new SqlParameter("year", year));
-                insertCommand.Parameters.Add(new SqlParameter("weekend", weekend));
-                insertCommand.Parameters.Add(new SqlParameter("date", date));
-                insertCommand.Parameters.Add(new SqlParameter("dayOfYear", dayOfYear));
-
-                //insert the line
-                int recordsAffected = insertCommand.ExecuteNonQuery();
-                Console.WriteLine("Records Affected: " + recordsAffected);
-            }
-            command.Parameters.Add(new SqlParameter("date", date));
-        }
-    }
-
-    private int GetDateID(string date)
-    {
-        //split the date down and assign it to variable for later use.
-        string[] arrayDate = date.Split('/');
-        int year = Convert.ToInt32(arrayDate[2]);
-        int month = Convert.ToInt32(arrayDate[1]);
-        int day = Convert.ToInt32(arrayDate[0]);
-
-        DateTime dateTime = new DateTime(year, month, day);
-
-        string dbDate = dateTime.ToString("m/dd/yyyy");
-
-
-        //create a connecting to the MDF file 
-        string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
-
-        using (SqlConnection myConnection = new SqlConnection(connectionStringDestination))
-        {
-            //open the sqlConnection.
-            myConnection.Open();
-            // the follwing code uses an SqlCommand based on the SqlConnection.
-            SqlCommand command = new SqlCommand("SELECT it FROM TIME WHERE date = @date", myConnection);
-            command.Parameters.Add(new SqlParameter("date", dbDate));
-
-            //create a variable and assign it to false by default.
-            bool exists = false;
-
-            //Run the command & read the results
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                //if there are rows, it means the data exists so change the exists variable.
-                if (reader.HasRows)
+                if (exists == false)
                 {
-                    exists = true;
-                    Console.WriteLine("Data exists!");
+
                 }
+                return 0;
             }
-
-            if (exists == false)
-            {
-
-            }
-            return 0;
         }
     }
+}
 

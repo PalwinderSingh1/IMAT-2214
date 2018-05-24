@@ -31,7 +31,6 @@
             this.btnGetDates = new System.Windows.Forms.Button();
             this.btnGetProducts = new System.Windows.Forms.Button();
             this.btnGetCustomers = new System.Windows.Forms.Button();
-            this.btnFromDb = new System.Windows.Forms.Button();
             this.btnPopulateFactTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -62,15 +61,6 @@
             this.btnGetCustomers.Text = "Get Customers";
             this.btnGetCustomers.UseVisualStyleBackColor = true;
             // 
-            // btnFromDb
-            // 
-            this.btnFromDb.Location = new System.Drawing.Point(396, 166);
-            this.btnFromDb.Name = "btnFromDb";
-            this.btnFromDb.Size = new System.Drawing.Size(167, 50);
-            this.btnFromDb.TabIndex = 3;
-            this.btnFromDb.Text = "Get From Db";
-            this.btnFromDb.UseVisualStyleBackColor = true;
-            // 
             // btnPopulateFactTable
             // 
             this.btnPopulateFactTable.Location = new System.Drawing.Point(396, 274);
@@ -86,7 +76,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 680);
             this.Controls.Add(this.btnPopulateFactTable);
-            this.Controls.Add(this.btnFromDb);
             this.Controls.Add(this.btnGetCustomers);
             this.Controls.Add(this.btnGetProducts);
             this.Controls.Add(this.btnGetDates);
@@ -101,7 +90,6 @@
         private System.Windows.Forms.Button btnGetDates;
         private System.Windows.Forms.Button btnGetProducts;
         private System.Windows.Forms.Button btnGetCustomers;
-        private System.Windows.Forms.Button btnFromDb;
         private System.Windows.Forms.Button btnPopulateFactTable;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GITTest
 {
-    partial class Harminder
+    partial class GetProducts
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GetProducts));
             this.btnGetProducts = new System.Windows.Forms.Button();
             this.lstboxGetProducts = new System.Windows.Forms.ListBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGetProducts
             // 
-            this.btnGetProducts.Location = new System.Drawing.Point(79, 122);
+            this.btnGetProducts.Location = new System.Drawing.Point(48, 211);
             this.btnGetProducts.Name = "btnGetProducts";
-            this.btnGetProducts.Size = new System.Drawing.Size(168, 68);
+            this.btnGetProducts.Size = new System.Drawing.Size(206, 47);
             this.btnGetProducts.TabIndex = 0;
             this.btnGetProducts.Text = "Get Products";
             this.btnGetProducts.UseVisualStyleBackColor = true;
@@ -46,20 +53,67 @@
             // 
             this.lstboxGetProducts.FormattingEnabled = true;
             this.lstboxGetProducts.ItemHeight = 25;
-            this.lstboxGetProducts.Location = new System.Drawing.Point(79, 217);
+            this.lstboxGetProducts.Location = new System.Drawing.Point(48, 274);
             this.lstboxGetProducts.Name = "lstboxGetProducts";
-            this.lstboxGetProducts.Size = new System.Drawing.Size(599, 529);
+            this.lstboxGetProducts.Size = new System.Drawing.Size(554, 504);
             this.lstboxGetProducts.TabIndex = 1;
             // 
-            // Harminder
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(449, 805);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(153, 52);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(180, 167);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(484, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 84);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(48, 805);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(153, 52);
+            this.btnBack.TabIndex = 12;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // GetProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 792);
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.ClientSize = new System.Drawing.Size(650, 890);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lstboxGetProducts);
             this.Controls.Add(this.btnGetProducts);
-            this.Name = "Harminder";
+            this.Name = "GetProducts";
             this.Text = "Harminder";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -68,5 +122,9 @@
 
         private System.Windows.Forms.Button btnGetProducts;
         private System.Windows.Forms.ListBox lstboxGetProducts;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBack;
     }
 }

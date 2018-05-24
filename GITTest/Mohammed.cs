@@ -11,9 +11,9 @@ using System.Data.OleDb;
 
 namespace GITTest
 {
-    public partial class Mohammed : Form
+    public partial class GetCustomers : Form
     {
-        public Mohammed()
+        public GetCustomers()
         {
             InitializeComponent();
         }
@@ -73,6 +73,20 @@ namespace GITTest
             }
             //Bind the listbox to th list
             listBoxCustomers.DataSource = CustomersFormatted;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //this closes the form
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //takes you back to main menu page
+            MainMenu MainMenu = new MainMenu();
+            //display the main menu page
+            MainMenu.Show();
         }
     }
 }

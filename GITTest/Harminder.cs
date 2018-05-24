@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace GITTest
 {
-    public partial class Harminder : Form
+    public partial class GetProducts : Form
     {
-        public Harminder()
+        public GetProducts()
         {
             InitializeComponent();
         }
@@ -60,6 +60,20 @@ namespace GITTest
 
             //blind the listbox to the list
             lstboxGetProducts.DataSource = ProductsFormatted;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //this closes the form
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //takes you back to main menu page
+            MainMenu MainMenu = new MainMenu();
+            //display the main menu page
+            MainMenu.Show();
         }
     }
 }

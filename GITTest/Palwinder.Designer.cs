@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GetDates));
             this.label2 = new System.Windows.Forms.Label();
             this.btnGetDates = new System.Windows.Forms.Button();
             this.listBoxDates = new System.Windows.Forms.ListBox();
@@ -35,6 +36,10 @@
             this.listBoxFromDbNamed = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -64,12 +69,12 @@
             this.listBoxDates.ItemHeight = 25;
             this.listBoxDates.Location = new System.Drawing.Point(31, 193);
             this.listBoxDates.Name = "listBoxDates";
-            this.listBoxDates.Size = new System.Drawing.Size(277, 379);
+            this.listBoxDates.Size = new System.Drawing.Size(377, 379);
             this.listBoxDates.TabIndex = 3;
             // 
             // btnGetfromDesinitionDb
             // 
-            this.btnGetfromDesinitionDb.Location = new System.Drawing.Point(432, 131);
+            this.btnGetfromDesinitionDb.Location = new System.Drawing.Point(466, 131);
             this.btnGetfromDesinitionDb.Name = "btnGetfromDesinitionDb";
             this.btnGetfromDesinitionDb.Size = new System.Drawing.Size(270, 48);
             this.btnGetfromDesinitionDb.TabIndex = 4;
@@ -81,14 +86,14 @@
             // 
             this.listBoxFromDbNamed.FormattingEnabled = true;
             this.listBoxFromDbNamed.ItemHeight = 25;
-            this.listBoxFromDbNamed.Location = new System.Drawing.Point(432, 193);
+            this.listBoxFromDbNamed.Location = new System.Drawing.Point(466, 193);
             this.listBoxFromDbNamed.Name = "listBoxFromDbNamed";
-            this.listBoxFromDbNamed.Size = new System.Drawing.Size(283, 379);
+            this.listBoxFromDbNamed.Size = new System.Drawing.Size(432, 379);
             this.listBoxFromDbNamed.TabIndex = 6;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(562, 706);
+            this.btnClose.Location = new System.Drawing.Point(745, 663);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(153, 52);
             this.btnClose.TabIndex = 7;
@@ -98,7 +103,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(31, 706);
+            this.btnBack.Location = new System.Drawing.Point(31, 663);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(153, 52);
             this.btnBack.TabIndex = 8;
@@ -106,12 +111,34 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(106, 109);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(573, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 84);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // GetDates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(739, 807);
+            this.ClientSize = new System.Drawing.Size(910, 807);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.listBoxFromDbNamed);
@@ -122,6 +149,8 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "GetDates";
             this.Text = "Palwinder";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +164,8 @@
         private System.Windows.Forms.ListBox listBoxFromDbNamed;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

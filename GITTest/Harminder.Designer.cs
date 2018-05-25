@@ -57,12 +57,12 @@
             this.lstboxGetProducts.ItemHeight = 25;
             this.lstboxGetProducts.Location = new System.Drawing.Point(48, 201);
             this.lstboxGetProducts.Name = "lstboxGetProducts";
-            this.lstboxGetProducts.Size = new System.Drawing.Size(554, 504);
+            this.lstboxGetProducts.Size = new System.Drawing.Size(553, 404);
             this.lstboxGetProducts.TabIndex = 1;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(449, 725);
+            this.btnClose.Location = new System.Drawing.Point(994, 635);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(153, 52);
             this.btnClose.TabIndex = 6;
@@ -83,7 +83,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(484, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1061, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -92,7 +92,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(48, 725);
+            this.btnBack.Location = new System.Drawing.Point(48, 635);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(153, 52);
             this.btnBack.TabIndex = 12;
@@ -116,7 +116,7 @@
             this.listBoxFromDbNamed.ItemHeight = 25;
             this.listBoxFromDbNamed.Location = new System.Drawing.Point(669, 201);
             this.listBoxFromDbNamed.Name = "listBoxFromDbNamed";
-            this.listBoxFromDbNamed.Size = new System.Drawing.Size(478, 504);
+            this.listBoxFromDbNamed.Size = new System.Drawing.Size(478, 404);
             this.listBoxFromDbNamed.TabIndex = 14;
             // 
             // GetProducts
@@ -124,7 +124,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1227, 802);
+            this.ClientSize = new System.Drawing.Size(1227, 904);
             this.Controls.Add(this.listBoxFromDbNamed);
             this.Controls.Add(this.btnGetfromDesinitionDb);
             this.Controls.Add(this.btnBack);
@@ -135,6 +135,7 @@
             this.Controls.Add(this.btnGetProducts);
             this.Name = "GetProducts";
             this.Text = "Harminder";
+            this.Load += new System.EventHandler(this.GetProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

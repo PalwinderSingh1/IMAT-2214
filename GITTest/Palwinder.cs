@@ -36,7 +36,7 @@ namespace GITTest
 
         private void btnGetDates_Click(object sender, EventArgs e)
         {
-            //Create a list to store the dates....testing testing 
+            //Create a list to store the dates
             List<string> Dates = new List<string>();
             //clear the listbox of existing content
             listBoxDates.Items.Clear();
@@ -57,7 +57,6 @@ namespace GITTest
                     Dates.Add(reader[1].ToString());
                 }
             }
-
             //Create a new list for the formatted date
             List<string> DatesFormatted = new List<string>();
 

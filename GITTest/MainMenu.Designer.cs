@@ -40,6 +40,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnCharts = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -80,9 +81,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(587, 640);
+            this.btnClose.Location = new System.Drawing.Point(574, 634);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(153, 52);
+            this.btnClose.Size = new System.Drawing.Size(168, 58);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -150,12 +151,23 @@
             // 
             // btnCharts
             // 
-            this.btnCharts.Location = new System.Drawing.Point(461, 238);
+            this.btnCharts.Location = new System.Drawing.Point(333, 238);
             this.btnCharts.Name = "btnCharts";
-            this.btnCharts.Size = new System.Drawing.Size(173, 48);
+            this.btnCharts.Size = new System.Drawing.Size(249, 48);
             this.btnCharts.TabIndex = 16;
             this.btnCharts.Text = "Charts";
             this.btnCharts.UseVisualStyleBackColor = true;
+            this.btnCharts.Click += new System.EventHandler(this.btnCharts_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(575, 567);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(170, 58);
+            this.btnHelp.TabIndex = 17;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // MainMenu
             // 
@@ -163,6 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(752, 898);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnCharts);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -176,6 +189,7 @@
             this.Controls.Add(this.btnGetDates);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -199,5 +213,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnCharts;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

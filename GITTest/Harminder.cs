@@ -65,12 +65,16 @@ namespace GITTest
         private void btnClose_Click(object sender, EventArgs e)
         {
             //this closes the form
+            //as a user clicks the button it automatically activates and closes project
             Application.Exit();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             //takes you back to main menu page
+            //no need to keep closing down the whole project to go back
+            //quick and effective way
+            //user friendly 
             MainMenu MainMenu = new MainMenu();
             //display the main menu page
             MainMenu.Show();
@@ -78,37 +82,44 @@ namespace GITTest
 
         private void btnGetfromDesinitionDb_Click(object sender, EventArgs e)
         {
-            //create new list to store named results
-            List<String> DestinationProductNamed = new List<string>();
+            // Create new list to store the named results 
+            List<string> DestinationDatesNamed = new List<string>();
 
-            //create the database string
+            //Create the database string
             string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionStringDestination))
             {
-                //create the seperate SQL commands to pull the data from the tables 
                 connection.Open();
-                SqlCommand productCommand = new SqlCommand("SELECT category , subcategory, productName from Product", connection);
+                SqlCommand timecommand = new SqlCommand("SELECT dayName, dayNumber, monthName, monthNumber, weekNumber, year, weekend," +
+                    "date, dayOfYear from Time", connection);
 
-                using (SqlDataReader reader = productCommand.ExecuteReader())
+                using (SqlDataReader reader = timecommand.ExecuteReader())
                 {
-                    //if there are rows , it mean the product exists so change exist variable
+                    //If there are rows, get them. 
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            DestinationProductNamed.Add(reader["category"].ToString() + ", " + reader["subcategory"].ToString() + ", " + reader["productName"].ToString());
+                            DestinationDatesNamed.Add(reader["dayName"].ToString() + ", " + reader["dayNumber"].ToString() + ", " +
+                                reader["monthName"].ToString() + ", " + reader["monthNumber"].ToString() + ", " + reader["weekNumber"].ToString() +
+                                ", " + reader["year"].ToString() + ", " + reader["weekend"].ToString() + ", " + reader["date"].ToString() + ", " +
+                                reader["dayOfYear"].ToString());
                         }
                     }
                     else
                     {
-                        DestinationProductNamed.Add("No Data Present");
+                        DestinationDatesNamed.Add("No Data present.");
                     }
                 }
-            }
 
+            }
             //Bind the listbox to the list.
-            listBoxFromDbNamed.DataSource = DestinationProductNamed;
+            listBoxFromDbNamed.DataSource = DestinationDatesNamed;
+        }
+
+        private void GetProducts_Load(object sender, EventArgs e)
+        {
 
         }
     }

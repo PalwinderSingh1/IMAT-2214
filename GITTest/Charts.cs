@@ -11,6 +11,8 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Globalization;
 
+
+
 namespace GITTest
 {
     public partial class Charts : Form
@@ -43,22 +45,21 @@ namespace GITTest
                 using (SqlConnection myConnection = new SqlConnection(connectionStringDestination))
                 {
 
-                    // Open the SqlConnection.
+                    // Open the SqlConnection
                     myConnection.Open();
                     // The following code uses an SqlCommand based on the SqlConnection.
                     SqlCommand command = new SqlCommand("SELECT COUNT(*) AS SalesNumber FROM FactTable JOIN Time " +
-                        "ON FactTable.timeId = Time.id WHERE Time.date = @date; ", myConnection);
+                    "ON FactTable.time.Id = Timeid WHERE Time.date = @date; ", myConnection);
                     command.Parameters.Add(new SqlParameter("date", date));
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        //If there are rows, it means there were sales. 
+                        //If there are rows, it means there were sales
                         if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 //This line adds a dictionary item with the key of the date, and the value being the sales number.
-                                //I could access this after by doing: int numberOfSales = salesCount["06/01/2014"]; - try it and write it to the console to test!
                                 salesCount.Add(date, Int32.Parse(reader["SalesNumber"].ToString()));
                             }
                         }
@@ -89,16 +90,6 @@ namespace GITTest
             chart1.Series[0].XValueMember = "Key";
             chart1.Series[0].YValueMembers = "Value";
             chart1.DataBind();
-
-
-            //Or a pie chart?
-            chart2.DataSource = salesCount;
-            chart2.Series[0].XValueMember = "Key";
-            chart2.Series[0].YValueMembers = "Value";
-            chart2.DataBind();
-        }
-    }
-}
 
         }
     }

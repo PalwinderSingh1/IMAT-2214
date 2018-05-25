@@ -36,7 +36,7 @@ namespace GITTest
 
         private void btnGetDates_Click(object sender, EventArgs e)
         {
-            //Create a list to store the dates 
+            //Create a list to store the dates....testing testing 
             List<string> Dates = new List<string>();
             //clear the listbox of existing content
             listBoxDates.Items.Clear();
@@ -104,7 +104,7 @@ namespace GITTest
 
         private void splitDates(string date)
         {
-            //split the data down and assign it to variables for later use/ added by harminder
+            //split the data down and assign it to variables for later use
             string[] arrayDate = date.Split('/');
             int year = Convert.ToInt32(arrayDate[2]);
             int month = Convert.ToInt32(arrayDate[1]);
@@ -231,10 +231,10 @@ namespace GITTest
             using (SqlConnection connection = new SqlConnection(connectionStringDestination))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT dayName, dayNumber, monthName, monthNumber, weekNumber, year, weekend," +
+                SqlCommand timecommand = new SqlCommand("SELECT dayName, dayNumber, monthName, monthNumber, weekNumber, year, weekend," +
                     "date, dayOfYear from Time", connection);
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlDataReader reader = timecommand.ExecuteReader())
                 {
                     //If there are rows, get them. 
                     if (reader.HasRows)

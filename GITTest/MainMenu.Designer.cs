@@ -32,7 +32,6 @@
             this.btnGetDates = new System.Windows.Forms.Button();
             this.btnGetProducts = new System.Windows.Forms.Button();
             this.btnGetCustomers = new System.Windows.Forms.Button();
-            this.btnPopulateFactTable = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,6 +39,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnCharts = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -77,16 +77,6 @@
             this.btnGetCustomers.Text = "Get Customers";
             this.btnGetCustomers.UseVisualStyleBackColor = true;
             this.btnGetCustomers.Click += new System.EventHandler(this.btnGetCustomers_Click);
-            // 
-            // btnPopulateFactTable
-            // 
-            this.btnPopulateFactTable.Location = new System.Drawing.Point(333, 238);
-            this.btnPopulateFactTable.Name = "btnPopulateFactTable";
-            this.btnPopulateFactTable.Size = new System.Drawing.Size(252, 52);
-            this.btnPopulateFactTable.TabIndex = 4;
-            this.btnPopulateFactTable.Text = "Populate Fact Table";
-            this.btnPopulateFactTable.UseVisualStyleBackColor = true;
-            this.btnPopulateFactTable.Click += new System.EventHandler(this.btnPopulateFactTable_Click);
             // 
             // btnClose
             // 
@@ -158,12 +148,22 @@
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
+            // btnCharts
+            // 
+            this.btnCharts.Location = new System.Drawing.Point(461, 238);
+            this.btnCharts.Name = "btnCharts";
+            this.btnCharts.Size = new System.Drawing.Size(173, 48);
+            this.btnCharts.TabIndex = 16;
+            this.btnCharts.Text = "Charts";
+            this.btnCharts.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(752, 898);
+            this.Controls.Add(this.btnCharts);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -171,7 +171,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnPopulateFactTable);
             this.Controls.Add(this.btnGetCustomers);
             this.Controls.Add(this.btnGetProducts);
             this.Controls.Add(this.btnGetDates);
@@ -192,7 +191,6 @@
         private System.Windows.Forms.Button btnGetDates;
         private System.Windows.Forms.Button btnGetProducts;
         private System.Windows.Forms.Button btnGetCustomers;
-        private System.Windows.Forms.Button btnPopulateFactTable;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -200,5 +198,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button btnCharts;
     }
 }

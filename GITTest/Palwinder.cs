@@ -222,7 +222,7 @@ namespace GITTest
 
         private void btnGetfromDesinitionDb_Click(object sender, EventArgs e)
         {
-            // Create new list to store the named results in.
+            // Create new list to store the named results 
             List<string> DestinationDatesNamed = new List<string>();
 
             //Create the database string

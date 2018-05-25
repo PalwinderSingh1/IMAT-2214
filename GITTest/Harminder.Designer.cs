@@ -41,7 +41,7 @@
             // 
             // btnGetProducts
             // 
-            this.btnGetProducts.Location = new System.Drawing.Point(48, 211);
+            this.btnGetProducts.Location = new System.Drawing.Point(48, 138);
             this.btnGetProducts.Name = "btnGetProducts";
             this.btnGetProducts.Size = new System.Drawing.Size(206, 47);
             this.btnGetProducts.TabIndex = 0;
@@ -53,14 +53,14 @@
             // 
             this.lstboxGetProducts.FormattingEnabled = true;
             this.lstboxGetProducts.ItemHeight = 25;
-            this.lstboxGetProducts.Location = new System.Drawing.Point(48, 274);
+            this.lstboxGetProducts.Location = new System.Drawing.Point(48, 201);
             this.lstboxGetProducts.Name = "lstboxGetProducts";
             this.lstboxGetProducts.Size = new System.Drawing.Size(554, 504);
             this.lstboxGetProducts.TabIndex = 1;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(449, 805);
+            this.btnClose.Location = new System.Drawing.Point(449, 725);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(153, 52);
             this.btnClose.TabIndex = 6;
@@ -73,7 +73,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(180, 167);
+            this.pictureBox2.Size = new System.Drawing.Size(106, 109);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
@@ -90,7 +90,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(48, 805);
+            this.btnBack.Location = new System.Drawing.Point(48, 725);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(153, 52);
             this.btnBack.TabIndex = 12;

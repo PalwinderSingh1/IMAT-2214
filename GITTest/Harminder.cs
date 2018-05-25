@@ -34,7 +34,7 @@ namespace GITTest
                 connection.Open();
                 OleDbDataReader reader = null;
                 //Obtain the product category, subcategory and name from Dataset1
-                OleDbCommand getProducts = new OleDbCommand("SELECT [Category], [Sub-Category], [Product Name] from Sheet1'", connection);
+                OleDbCommand getProducts = new OleDbCommand("SELECT [Category], [Sub-Category], [Product Name] from Sheet1", connection);
                 reader = getProducts.ExecuteReader();
                 while (reader.Read())
                 {

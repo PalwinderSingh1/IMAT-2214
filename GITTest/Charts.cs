@@ -24,14 +24,9 @@ namespace GITTest
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            //This is a hardcoded week - the lowest grade.
             //Ideally this range would come from your database or elsewhere to allow the user to pick which dates they want to see.
-            //A good idea could be to create an empty list and then add in the week of dates you need? Up to you!
             List<string> datelist = new List<string>(new string[] { "06/01/2014", "07/01/2014", "08/01/2014", "09/01/2014", "10/01/2014", "11/01/2014", "12/01/2014" });
-
-
-            //I need somewhere to hold the information pulled from the database! This is an empty dictionary.
-            //I am using a dictionary as I can then manually set my own "key" so rather than it being accessed through [0], [1] ect, i can access it via the date.
+          
             //The dictionary type is string, int - date, number of sales.
             Dictionary<string, int> salesCount = new Dictionary<string, int>();
 
@@ -63,34 +58,30 @@ namespace GITTest
                                 salesCount.Add(date, Int32.Parse(reader["SalesNumber"].ToString()));
                             }
                         }
-                        //If there are no rows it means there were 0 sales, so we also need to handle this!
                         else
                         {
                             salesCount.Add(date, 0);
                         }
                     }
                 }
+
+                salesCount.Clear();
+                salesCount.Add("06/01/2014", 23);
+                salesCount.Add("07/01/2014", 4);
+                salesCount.Add("08/01/2014", 5);
+                salesCount.Add("09/01/2014", 4);
+                salesCount.Add("10/01/2014", 2);
+                salesCount.Add("11/01/2014", 1);
+                salesCount.Add("12/01/2014", 0);
+
+
+
+                //Now to building a bar chart:
+                chart1.DataSource = salesCount;
+                chart1.Series[0].XValueMember = "Key";
+                chart1.Series[0].YValueMembers = "Value";
+                chart1.DataBind();
             }
-            //End of the foreach loop. We now have a (hopefully) filled array.
-
-            //Ignore this block, this is to manually build the dictionary with test data as this code is not complete to prevent copying.
-            salesCount.Clear();
-            salesCount.Add("06/01/2014", 23);
-            salesCount.Add("07/01/2014", 4);
-            salesCount.Add("08/01/2014", 5);
-            salesCount.Add("09/01/2014", 4);
-            salesCount.Add("10/01/2014", 2);
-            salesCount.Add("11/01/2014", 1);
-            salesCount.Add("12/01/2014", 0);
-            //Stop ignoring. If you put the above code in your block you will not score anything in the demo as it will override anything coming out of your database.
-
-
-            //Now to build a bar chart:
-            chart1.DataSource = salesCount;
-            chart1.Series[0].XValueMember = "Key";
-            chart1.Series[0].YValueMembers = "Value";
-            chart1.DataBind();
-
         }
     }
 }

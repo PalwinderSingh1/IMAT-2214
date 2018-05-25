@@ -75,5 +75,41 @@ namespace GITTest
             //display the main menu page
             MainMenu.Show();
         }
+
+        private void btnGetfromDesinitionDb_Click(object sender, EventArgs e)
+        {
+            //create new list to store named results
+            List<String> DestinationProductNamed = new List<string>();
+
+            //create the database string
+            string connectionStringDestination = Properties.Settings.Default.DestinationDatabaseConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionStringDestination))
+            {
+                //create the seperate SQL commands to pull the data from the tables 
+                connection.Open();
+                SqlCommand productCommand = new SqlCommand("SELECT category , subcategory, productName from Product", connection);
+
+                using (SqlDataReader reader = productCommand.ExecuteReader())
+                {
+                    //if there are rows , it mean the product exists so change exist variable
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            DestinationProductNamed.Add(reader["category"].ToString() + ", " + reader["subcategory"].ToString() + ", " + reader["productName"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        DestinationProductNamed.Add("No Data Present");
+                    }
+                }
+            }
+
+            //Bind the listbox to the list.
+            listBoxFromDbNamed.DataSource = DestinationProductNamed;
+
+        }
     }
 }

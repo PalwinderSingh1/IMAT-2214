@@ -35,6 +35,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnGetfromDesinitionDb = new System.Windows.Forms.Button();
+            this.listBoxFromDbNamed = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,12 +100,33 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnGetfromDesinitionDb
+            // 
+            this.btnGetfromDesinitionDb.Location = new System.Drawing.Point(669, 137);
+            this.btnGetfromDesinitionDb.Name = "btnGetfromDesinitionDb";
+            this.btnGetfromDesinitionDb.Size = new System.Drawing.Size(270, 48);
+            this.btnGetfromDesinitionDb.TabIndex = 13;
+            this.btnGetfromDesinitionDb.Text = "Get from Destination Db";
+            this.btnGetfromDesinitionDb.UseVisualStyleBackColor = true;
+            this.btnGetfromDesinitionDb.Click += new System.EventHandler(this.btnGetfromDesinitionDb_Click);
+            // 
+            // listBoxFromDbNamed
+            // 
+            this.listBoxFromDbNamed.FormattingEnabled = true;
+            this.listBoxFromDbNamed.ItemHeight = 25;
+            this.listBoxFromDbNamed.Location = new System.Drawing.Point(669, 201);
+            this.listBoxFromDbNamed.Name = "listBoxFromDbNamed";
+            this.listBoxFromDbNamed.Size = new System.Drawing.Size(478, 504);
+            this.listBoxFromDbNamed.TabIndex = 14;
+            // 
             // GetProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(650, 890);
+            this.ClientSize = new System.Drawing.Size(1227, 802);
+            this.Controls.Add(this.listBoxFromDbNamed);
+            this.Controls.Add(this.btnGetfromDesinitionDb);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
@@ -126,5 +149,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnGetfromDesinitionDb;
+        private System.Windows.Forms.ListBox listBoxFromDbNamed;
     }
 }

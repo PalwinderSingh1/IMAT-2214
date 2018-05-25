@@ -86,6 +86,7 @@
             this.btnPopulateFactTable.TabIndex = 4;
             this.btnPopulateFactTable.Text = "Populate Fact Table";
             this.btnPopulateFactTable.UseVisualStyleBackColor = true;
+            this.btnPopulateFactTable.Click += new System.EventHandler(this.btnPopulateFactTable_Click);
             // 
             // btnClose
             // 
